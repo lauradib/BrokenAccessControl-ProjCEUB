@@ -6,7 +6,7 @@ Aplicação intencionalmente vulnerável, criada como demonstração prática de
 Todos os dados são fictícios.
 
 ## Projeto de pesquisa
-O artigo científico completo, com conceito, impactos, formas de detecção e boas práticas de mitigação da falha, está disponível aqui: [Projeto de Pesquisa – Broken Access Control](docs/Projeto_de_Pesquisa_Broken_Access_Control.pdf)
+O artigo científico completo, com conceito, impactos, formas de detecção e boas práticas de mitigação da falha, está disponível aqui: [Projeto de Pesquisa – Broken Access Control]([docs/Projeto_de_Pesquisa_Broken_Access_Control.pdf](https://github.com/lauradib/BrokenAccessControl-ProjCEUB/blob/main/2%20Projeto%20de%20Pesquisa%20-%20Broken%20Access%20Control.pdf))
 
 ## Aviso
 Aplicação apenas para fins didáticos. Chave de sessão fixa no código, sem persistência real de dados e sem nenhum dado de pessoa real. Não usar essa estrutura de autenticação em produção.
