@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Entrar — Centro Universitário Synapse{% endblock %}
+{% block content %}
+<div class="login-wrap">
+  <div class="marca-login">Centro Universitário Synapse</div>
+  <div class="cartao">
+    <h1>Acessar o portal</h1>
+    {% if erro %}
+    <div class="erro">{{ erro }}</div>
+    {% endif %}
+    <form method="post">
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+
+      <button type="submit" class="primario">Entrar</button>
+    </form>
+    <p class="rodape-nota">
+      Contas de teste: aluno1 / 1234 · aluno2 / abcd · professor1 / prof123
+    </p>
+  </div>
+</div>
+{% endblock %}

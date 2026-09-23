@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Painel do professor — Centro Universitário Synapse{% endblock %}
+{% block content %}
+<div class="cartao">
+  <h1>Painel do professor</h1>
+  <p>Selecione um aluno para ver e editar o boletim.</p>
+  <table class="lista-alunos">
+    <thead>
+      <tr><th>Matrícula</th><th>Aluno</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for aluno in alunos %}
+      <tr>
+        <td><span class="tag-matricula">{{ aluno.matricula }}</span></td>
+        <td>{{ aluno.nome }}</td>
+        <td><a href="{{ url_for('notas_professor', slug=aluno.slug) }}">ver / editar notas</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

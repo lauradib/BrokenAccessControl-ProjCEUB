@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Boletim de {{ nome }} — Centro Universitário Synapse{% endblock %}
+{% block content %}
+<div class="cartao">
+  <h1>Boletim — {{ nome }}</h1>
+  <p><span class="tag-matricula">matrícula {{ matricula }}</span></p>
+
+  {% if mensagem %}
+  <div class="mensagem">{{ mensagem }}</div>
+  {% endif %}
+
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Nota atual</th><th>Nova nota</th></tr>
+    </thead>
+    <tbody>
+      {% for item in notas %}
+      <tr>
+        <td>{{ item.disciplina }}</td>
+        <td>{{ "%.1f"|format(item.nota) }}</td>
+        <td>
+          <form method="post" style="display:flex; gap:8px; align-items:center;">
+            <input type="hidden" name="disciplina" value="{{ item.disciplina }}">
+            <input type="number" step="0.1" min="0" max="10" name="nota" value="{{ item.nota }}" style="width:80px;">
+            <input type="submit" value="Salvar">
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="rodape-nota">
+    Rota: <code>/professor/notas/{{ slug }}</code> — em modo vulnerável, qualquer
+    sessão autenticada chega aqui e altera a nota, mesmo sendo um aluno. Em modo
+    corrigido, só uma sessão com papel de professor passa por essa checagem.
+  </p>
+</div>
+{% endblock %}

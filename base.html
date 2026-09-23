@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Centro Universitário Synapse{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="demo-banner {{ 'seguro' if modo_seguro else 'vulneravel' }}">
+    <span>
+      Painel de demonstração (fora do portal fictício) — modo atual:
+      <strong>{{ 'CORRIGIDO' if modo_seguro else 'VULNERÁVEL' }}</strong>
+    </span>
+    <form method="post" action="{{ url_for('alternar_modo') }}">
+      <button type="submit">
+        {{ 'Desligar correção' if modo_seguro else 'Ativar correção' }}
+      </button>
+    </form>
+  </div>
+
+  <header class="topo">
+    <div class="marca">Centro Universitário Synapse</div>
+    {% if logado %}
+    <nav>
+      <span>Olá, {{ session.get('nome') }}</span>
+      <a href="{{ url_for('logout') }}">Sair</a>
+    </nav>
+    {% endif %}
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

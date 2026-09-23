@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Minhas notas — Centro Universitário Synapse{% endblock %}
+{% block content %}
+<div class="cartao">
+  <h1>Minhas notas</h1>
+  <p>
+    {{ nome }} &middot; <span class="tag-matricula">matrícula {{ matricula }}</span>
+  </p>
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Nota</th></tr>
+    </thead>
+    <tbody>
+      {% for item in notas %}
+      <tr>
+        <td>{{ item.disciplina }}</td>
+        <td>{{ "%.1f"|format(item.nota) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="rodape-nota">
+    Esta página só mostra o boletim vinculado à sua própria sessão — a matrícula
+    nunca vem da URL, sempre do login.
+  </p>
+</div>
+{% endblock %}
